@@ -6,11 +6,12 @@ import { Product } from '../models/product.model';
   providedIn: 'root'
 })
 export class ProductService {
-  private http = inject(HttpClient)
+
+  private http = inject(HttpClient);
 
   constructor() { }
 
   getProducts() {
-    return this.http.get<Product[]>('https://api.escuelajs.co/api/v1/products')
+    return this.http.get<Product[]>('https://api.escuelajs.co/api/v1/products');
   }
 }

@@ -1,10 +1,10 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductComponent} from './../../components/product/product.component';
-import {Product} from './../../../shared/models/product.model'
-import { HeaderComponent } from './../../../shared/components/header/header.component';
-import { CartService } from '../../../shared/services/cart.service';
-import { ProductService } from '../../../shared/services/product.service';
+import { ProductComponent } from '@products/components/product/product.component';
+import { HeaderComponent } from '@shared/components/header/header.component';
+import { Product } from '@shared/models/product.model';
+import { CartService } from '@shared/services/cart.service';
+import { ProductService } from '@shared/services/product.service';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { ProductService } from '../../../shared/services/product.service';
   standalone: true,
   imports: [CommonModule, ProductComponent, HeaderComponent],
   templateUrl: './list.component.html',
-  styleUrl: './list.component.css'
+  styleUrls: ['./list.component.css']
 })
 
 
@@ -21,7 +21,7 @@ export class ListComponent {
   private cartService = inject(CartService);
   private productService = inject(ProductService);
 
-  ngOnit() {
+  ngOnInit() {
     this.productService.getProducts()
     .subscribe({
       next: (products) => {
@@ -31,10 +31,10 @@ export class ListComponent {
 
       }
     })
-  };
+  }
 
-
-  addToCart(product: Product){
-    this.cartService.addToCart(product);
-  };
+  addToCart(product: Product) {
+    this.cartService.addToCart(product)
+  }
 }
+
