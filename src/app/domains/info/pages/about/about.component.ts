@@ -1,12 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { WaveAudioComponent } from './../../../info/components/wave-audio/wave-audio.component';
 
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, WaveAudioComponent],
+  imports: [WaveAudioComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
