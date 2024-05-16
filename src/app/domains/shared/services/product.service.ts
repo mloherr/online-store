@@ -16,7 +16,8 @@ export class ProductService {
   if (category_id){
       url.searchParams.set('categoryId', category_id)
   }
-    return this.http.get<Product[]>(url.toString());
+    return this.http.get<Product[]>(url.toString())
+
   };
 
   getOneProduct(id: string){

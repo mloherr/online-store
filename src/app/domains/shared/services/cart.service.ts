@@ -14,6 +14,7 @@ export class CartService {
   });
 
   constructor() { };
+
   addToCart(product: Product) {
     this.cart.update(state => [...state, product]);
   };

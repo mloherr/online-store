@@ -42,7 +42,10 @@ export class ListComponent {
     this.productService.getProducts(this.category_id)
     .subscribe({
       next: (products) => {
-        this.products.set(products);
+        const newProducts = products.filter((product) => {
+          return product.category.name === 'Electronics' || product.category.name === 'Furniture' || product.category.name === 'Shoes'
+       })
+        this.products.set(newProducts);
       },
       error: () => {
       }
@@ -53,7 +56,10 @@ export class ListComponent {
     this.categoryService.getAllCategories()
     .subscribe({
       next: (data) => {
-        this.categories.set(data);
+        const newData = data.filter((category) => {
+           return category.name === 'Electronics' || category.name === 'Furniture' || category.name === 'Shoes'
+        })
+        this.categories.set(newData);
       },
       error: () => {
       }
