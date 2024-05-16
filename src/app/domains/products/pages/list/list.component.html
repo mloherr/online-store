@@ -1,12 +1,17 @@
 <div class="flex space-x-4 pt-5 pb-5 border-r-2 border-l-2 border-black">
   <div class="w-80 pl-1">
     <ul>
-      <li><a routerLink="/">All categories</a></li>
+      <li>
+        <a class="hover:font-bold" routerLink="/">All categories</a>
+      </li>
       @for (category of categories(); track category.id) {
       <li>
-        <a routerLink="/" [queryParams]="{ category_id: category.id }">{{
-          category.name
-        }}</a>
+        <a
+          class="hover:font-bold"
+          routerLink="/"
+          [queryParams]="{ category_id: category.id }"
+          >{{ category.name }}</a
+        >
       </li>
       }
     </ul>
