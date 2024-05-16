@@ -16,5 +16,9 @@ export class CartService {
   constructor() { };
   addToCart(product: Product) {
     this.cart.update(state => [...state, product]);
-  }
+  };
+
+  removeFromCart(product: Product){
+    this.cart.update(state => state.filter(item => item !== product));
+  };
 }

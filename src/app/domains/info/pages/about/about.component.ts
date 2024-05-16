@@ -23,4 +23,6 @@ export class AboutComponent {
     this.message.set(input.value);
   };
 
+
+
 }

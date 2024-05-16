@@ -1,7 +1,8 @@
-import { Component, inject, Input, signal, SimpleChanges } from '@angular/core';
+import { Component, inject, Input, signal, SimpleChanges, EventEmitter, Output } from '@angular/core';
 import { Product } from '@shared/models/product.model';
 import { CartService } from '@shared/services/cart.service';
 import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
+
 
 
 @Component({
@@ -13,13 +14,19 @@ import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
 })
 export class HeaderComponent {
   hideAsideMenu = signal(true);
+
   private cartService = inject(CartService);
+
   cart = this.cartService.cart;
   total = this.cartService.totalPrice;
-
 
   toggleAsideMenu = () => {
     this.hideAsideMenu.update(prevState => !prevState);
   };
+
+  removeFromCartHandler(product: Product) {
+    this.cartService.removeFromCart(product)
+  };
+
 
 }
