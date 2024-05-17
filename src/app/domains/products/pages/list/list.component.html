@@ -1,20 +1,22 @@
 <div class="flex space-x-4 pt-5 pb-5 border-r-2 border-l-2 border-black">
-  <div class="w-80 pl-1">
-    <ul>
-      <li>
-        <a class="hover:font-bold" routerLink="/">All categories</a>
-      </li>
-      @for (category of categories(); track category.id) {
-      <li>
-        <a
-          class="hover:font-bold"
-          routerLink="/"
-          [queryParams]="{ category_id: category.id }"
-          >{{ category.name }}</a
-        >
-      </li>
-      }
-    </ul>
+  <div
+    class="w-80 h-40 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-purple-900 dark:text-white"
+  >
+    <a
+      aria-current="true"
+      class="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-violet-300 dark:hover:bg-purple-400 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+      routerLink="/"
+      >All categories</a
+    >
+
+    @for (category of categories(); track category.id) {
+    <a
+      class="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-violet-300 dark:hover:bg-purple-400 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+      routerLink="/"
+      [queryParams]="{ category_id: category.id }"
+      >{{ category.name }}</a
+    >
+    }
   </div>
   <div
     class="grid lg:grid-cols-4 gap-8 w-full sm:grid-cols-1 md:grid-cols-2 pr-1"
